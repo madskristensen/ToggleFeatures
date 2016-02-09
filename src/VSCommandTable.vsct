@@ -8,17 +8,12 @@
         <Buttons>
             <Button guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" priority="0x0200" type="Button">
                 <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_ORG_WINDOWS" />
-                <CommandFlag>DynamicVisibility</CommandFlag>
                 <Strings>
                     <ButtonText>Solution Explorer's Class View</ButtonText>
                 </Strings>
             </Button>
         </Buttons>
     </Commands>
-
-    <VisibilityConstraints>
-        <VisibilityItem guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" context="UICONTEXT_SolutionExistsAndNotBuildingAndNotDebugging" />
-    </VisibilityConstraints>
 
     <Symbols>
         <!-- This is the package guid. -->

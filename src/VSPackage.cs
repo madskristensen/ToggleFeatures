@@ -9,7 +9,7 @@ namespace MadsKristensen.ToggleFeatures
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", Version, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [ProvideAutoLoad(UIContextGuids80.SolutionExists)]
+    [ProvideAutoLoad(UIContextGuids80.NoSolution)]
     [Guid(PackageGuids.guidToggleFeaturesPkgString)]
     public sealed class VSPackage : Package
     {
