@@ -8,11 +8,16 @@
         <Buttons>
             <Button guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" priority="0x0200" type="Button">
                 <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_ORG_WINDOWS" />
+                <Icon guid="guidImages" id="GraphProvider"/>
                 <Strings>
                     <ButtonText>Solution Explorer's Class View</ButtonText>
                 </Strings>
             </Button>
         </Buttons>
+
+        <Bitmaps>
+            <Bitmap guid="guidImages" usedList="GraphProvider" href="Resources\Images.png"/>
+        </Bitmaps>
     </Commands>
 
     <Symbols>
@@ -21,6 +26,10 @@
 
         <GuidSymbol name="guidToggleFeaturesCmdSet" value="{53667d07-cf71-4f9b-b867-ec0f007418ee}">
             <IDSymbol name="ToggleGraphProvider" value="0x0100" />
+        </GuidSymbol>
+
+        <GuidSymbol name="guidImages" value="{53667d07-cf71-4f9b-b867-ec0f007418ef}">
+            <IDSymbol name="GraphProvider" value="0x0001" />
         </GuidSymbol>
     </Symbols>
 

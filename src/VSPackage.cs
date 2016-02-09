@@ -5,7 +5,6 @@ using Microsoft.VisualStudio.Shell.Interop;
 
 namespace MadsKristensen.ToggleFeatures
 {
-
     [PackageRegistration(UseManagedResourcesOnly = true)]
     [InstalledProductRegistration("#110", "#112", Version, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
