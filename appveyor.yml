@@ -8,6 +8,7 @@ before_build:
   - ps: Vsix-TokenReplacement src\VSPackage.cs 'Version = "([0-9\\.]+)"' 'Version = "{version}"'
 
 build_script:
+  - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%"
   - nuget restore -Verbosity quiet
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
 
