@@ -2,8 +2,9 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="4ce74140-3f68-4438-92a4-a54afea98179" Version="1.0" Language="en-US" Publisher="Mads Kristensen" />
-        <DisplayName>Feature Toggler</DisplayName>
-        <Description xml:space="preserve">Makes it easy to turn various hidden features on and off in Visual Studio</Description>
+        <DisplayName>Disable Solution Navigator Class View</DisplayName>
+        <Description xml:space="preserve">A single-purpose extension that makes it easy to disable/enable Solution Explorer's inline Class View nodes from C# and VB files. </Description>
+        <MoreInfo>https://github.com/madskristensen/togglefeatures</MoreInfo>
         <License>Resources\LICENSE</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
@@ -14,10 +15,6 @@
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="12.0" />
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="14.0" />
     </Installation>
-    <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
-        <Dependency Id="Microsoft.VisualStudio.MPF.12.0" DisplayName="Visual Studio MPF 12.0" d:Source="Installed" Version="[12.0]" />
-    </Dependencies>
     <Assets>
         <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
     </Assets>

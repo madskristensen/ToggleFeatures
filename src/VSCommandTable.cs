@@ -17,7 +17,6 @@ namespace MadsKristensen.ToggleFeatures
     /// </summary>
     internal sealed partial class PackageIds
     {
-        public const int MyMenuGroup = 0x1020;
         public const int ToggleGraphProvider = 0x0100;
     }
 }

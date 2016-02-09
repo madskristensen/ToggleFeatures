@@ -5,19 +5,12 @@
     <Extern href="vsshlids.h"/>
 
     <Commands package="guidToggleFeaturesPkg">
-
-        <Groups>
-            <Group guid="guidToggleFeaturesCmdSet" id="MyMenuGroup" priority="0x0600">
-                <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS"/>
-            </Group>
-        </Groups>
-
         <Buttons>
-            <Button guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" priority="0x0100" type="Button">
-                <Parent guid="guidToggleFeaturesCmdSet" id="MyMenuGroup" />
+            <Button guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" priority="0x0200" type="Button">
+                <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_ORG_WINDOWS" />
                 <CommandFlag>DynamicVisibility</CommandFlag>
                 <Strings>
-                    <ButtonText>Hide Class View in Solution Explorer</ButtonText>
+                    <ButtonText>Solution Explorer's Class View</ButtonText>
                 </Strings>
             </Button>
         </Buttons>
@@ -32,7 +25,6 @@
         <GuidSymbol name="guidToggleFeaturesPkg" value="{4ce74140-3f68-4438-92a4-a54afea98179}" />
 
         <GuidSymbol name="guidToggleFeaturesCmdSet" value="{53667d07-cf71-4f9b-b867-ec0f007418ee}">
-            <IDSymbol name="MyMenuGroup" value="0x1020" />
             <IDSymbol name="ToggleGraphProvider" value="0x0100" />
         </GuidSymbol>
     </Symbols>

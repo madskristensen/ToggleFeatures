@@ -41,7 +41,7 @@ namespace MadsKristensen.ToggleFeatures
 
             int.TryParse(rawValue.ToString(), out value);
 
-            button.Checked = value == 0;
+            button.Checked = value != 0;
         }
 
         void ToggleFeature(object sender, EventArgs e)
