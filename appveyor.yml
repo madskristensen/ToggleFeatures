@@ -1,4 +1,5 @@
 version: 1.0.{build}
+os: Visual Studio 2015
 
 install:
   - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
@@ -8,7 +9,6 @@ before_build:
   - ps: Vsix-TokenReplacement src\VSPackage.cs 'Version = "([0-9\\.]+)"' 'Version = "{version}"'
 
 build_script:
-  - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%"
   - nuget restore -Verbosity quiet
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
 
