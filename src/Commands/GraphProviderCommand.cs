@@ -41,17 +41,16 @@ namespace MadsKristensen.ToggleFeatures
 
             int.TryParse(rawValue.ToString(), out value);
 
-            button.Checked = value != 0;
+            //button.Checked = value != 0;
+            button.Text = (value != 0 ? "Disable " : "Enable ") + VSPackage.Name;
         }
 
         void ToggleFeature(object sender, EventArgs e)
         {
             var button = (OleMenuCommand)sender;
+            var willEnable = !button.Checked;
 
-            if (!UserWantsToProceed())
-                return;
-
-            if (!button.Checked) // User checked the button
+            if (willEnable)
             {
                 _package.UserRegistryRoot.DeleteValue(_dword);
             }
@@ -60,7 +59,8 @@ namespace MadsKristensen.ToggleFeatures
                 _package.UserRegistryRoot.SetValue(_dword, 0);
             }
 
-            RestartVS();
+            if (UserWantsToRestart(willEnable))
+                RestartVS();
         }
 
         void RestartVS()
@@ -69,9 +69,10 @@ namespace MadsKristensen.ToggleFeatures
             shell.Restart((uint)__VSRESTARTTYPE.RESTART_Normal);
         }
 
-        static bool UserWantsToProceed()
+        static bool UserWantsToRestart(bool willEnable)
         {
-            string text = "This will toggle the feature and restart Visual Studio.\r\rDo you wish to continue?";
+            string mode = willEnable ? "enabled" : "disabled";
+            string text = $"Dynamic nodes have now been {mode}, but will not take effect before Visual Studio has been restarted.\r\rDo you wish to restart now?";
             return MessageBox.Show(text, VSPackage.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
     }

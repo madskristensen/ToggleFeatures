@@ -9,8 +9,9 @@
             <Button guid="guidToggleFeaturesCmdSet" id="ToggleGraphProvider" priority="0x0200" type="Button">
                 <Parent guid="guidSHLMainMenu" id="IDG_VS_VIEW_ORG_WINDOWS" />
                 <Icon guid="guidImages" id="GraphProvider"/>
+                <CommandFlag>TextChanges</CommandFlag>
                 <Strings>
-                    <ButtonText>Solution Explorer's Class View</ButtonText>
+                    <ButtonText>Solution Explorer's Dynamic Nodes</ButtonText>
                 </Strings>
             </Button>
         </Buttons>

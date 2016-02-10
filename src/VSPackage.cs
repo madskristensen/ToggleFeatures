@@ -13,7 +13,7 @@ namespace MadsKristensen.ToggleFeatures
     public sealed class VSPackage : Package
     {
         public const string Version = "1.0";
-        public const string Name = "Toggle Features";
+        public const string Name = "Solution Explorer's Dynamic Nodes";
 
         protected override void Initialize()
         {
