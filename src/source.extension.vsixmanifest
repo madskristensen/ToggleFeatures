@@ -2,7 +2,7 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="4ce74140-3f68-4438-92a4-a54afea98179" Version="1.0" Language="en-US" Publisher="Mads Kristensen" />
-        <DisplayName>Disable Solution Navigator Class View</DisplayName>
+        <DisplayName>Disable Solution Explorer's Class View</DisplayName>
         <Description xml:space="preserve">A single-purpose extension that makes it easy to disable/enable Solution Explorer's inline Class View nodes from C# and VB files. </Description>
         <MoreInfo>https://github.com/madskristensen/togglefeatures</MoreInfo>
         <License>Resources\LICENSE</License>
