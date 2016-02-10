@@ -10,6 +10,7 @@ namespace MadsKristensen.ToggleFeatures
     {
         Package _package;
         const string _dword = "UseSolutionNavigatorGraphProvider";
+        bool _isEnabled;
 
         GraphProviderCommand(Package package)
         {
@@ -41,16 +42,13 @@ namespace MadsKristensen.ToggleFeatures
 
             int.TryParse(rawValue.ToString(), out value);
 
-            //button.Checked = value != 0;
-            button.Text = (value != 0 ? "Disable " : "Enable ") + VSPackage.Name;
+            _isEnabled = value != 0;
+            button.Text = (_isEnabled ? "Disable " : "Enable ") + VSPackage.Name;
         }
 
         void ToggleFeature(object sender, EventArgs e)
         {
-            var button = (OleMenuCommand)sender;
-            var willEnable = !button.Checked;
-
-            if (willEnable)
+            if (!_isEnabled)
             {
                 _package.UserRegistryRoot.DeleteValue(_dword);
             }
@@ -59,8 +57,10 @@ namespace MadsKristensen.ToggleFeatures
                 _package.UserRegistryRoot.SetValue(_dword, 0);
             }
 
-            if (UserWantsToRestart(willEnable))
+            if (UserWantsToRestart(!_isEnabled))
+            {
                 RestartVS();
+            }
         }
 
         void RestartVS()
