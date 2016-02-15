@@ -43,7 +43,7 @@ namespace MadsKristensen.ToggleFeatures
             int.TryParse(rawValue.ToString(), out value);
 
             _isEnabled = value != 0;
-            button.Text = (_isEnabled ? "Disable " : "Enable ") + VSPackage.Name;
+            button.Text = (_isEnabled ? "Disable " : "Enable ") + Vsix.Name;
         }
 
         void ToggleFeature(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace MadsKristensen.ToggleFeatures
 
         void RestartVS()
         {
-            IVsShell4 shell = (IVsShell4)ServiceProvider.GetService(typeof(SVsShell));
+            var shell = (IVsShell4)ServiceProvider.GetService(typeof(SVsShell));
             shell.Restart((uint)__VSRESTARTTYPE.RESTART_Normal);
         }
 
@@ -73,7 +73,7 @@ namespace MadsKristensen.ToggleFeatures
         {
             string mode = willEnable ? "enabled" : "disabled";
             string text = $"Dynamic nodes have now been {mode}, but will not take effect before Visual Studio has been restarted.\r\rDo you wish to restart now?";
-            return MessageBox.Show(text, VSPackage.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+            return MessageBox.Show(text, Vsix.Name, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
     }
 }
