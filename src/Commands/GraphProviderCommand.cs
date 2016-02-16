@@ -43,7 +43,7 @@ namespace MadsKristensen.ToggleFeatures
             int.TryParse(rawValue.ToString(), out value);
 
             _isEnabled = value != 0;
-            button.Text = (_isEnabled ? "Disable " : "Enable ") + Vsix.Name;
+            button.Text = (_isEnabled ? "Disable" : "Enable") + " Solution Explorer's Dynamic Nodes";
         }
 
         void ToggleFeature(object sender, EventArgs e)
