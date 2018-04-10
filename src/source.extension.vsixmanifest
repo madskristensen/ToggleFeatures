@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="4ce74140-3f68-4438-92a4-a54afea98179" Version="1.2" Language="en-US" Publisher="Mads Kristensen" />
+        <Identity Id="4ce74140-3f68-4438-92a4-a54afea98179" Version="1.3" Language="en-US" Publisher="Mads Kristensen" />
         <DisplayName>Disable Solution Explorer's Dynamic Nodes</DisplayName>
         <Description xml:space="preserve">A single-purpose extension that makes it easy to disable/enable Solution Explorer's dynamic nodes such inline Class View nodes from C# and VB files. </Description>
         <MoreInfo>https://github.com/madskristensen/togglefeatures</MoreInfo>
@@ -11,7 +11,6 @@
         <Tags>Solution Explorer, enable, disable, IGraphProvider</Tags>
     </Metadata>
     <Installation InstalledByMsi="false">
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="12.0" />
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="14.0" />
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="15.0" />
     </Installation>

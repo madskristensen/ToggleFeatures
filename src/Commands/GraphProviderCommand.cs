@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Task = System.Threading.Tasks.Task;
 
 namespace MadsKristensen.ToggleFeatures
 {
@@ -12,11 +13,9 @@ namespace MadsKristensen.ToggleFeatures
         const string _dword = "UseSolutionNavigatorGraphProvider";
         bool _isEnabled;
 
-        GraphProviderCommand(Package package)
+        GraphProviderCommand(Package package, OleMenuCommandService service)
         {
             ServiceProvider = _package = package;
-
-            var service = (OleMenuCommandService)ServiceProvider.GetService(typeof(IMenuCommandService));
 
             var cmdId = new CommandID(PackageGuids.guidToggleFeaturesCmdSet, PackageIds.ToggleGraphProvider);
             var button = new OleMenuCommand(ToggleFeature, cmdId);
@@ -28,19 +27,18 @@ namespace MadsKristensen.ToggleFeatures
 
         IServiceProvider ServiceProvider { get; }
 
-        public static void Initialize(Package package)
+        public static async Task InitializeAsync(AsyncPackage package)
         {
-            Instance = new GraphProviderCommand(package);
+            var service = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
+            Instance = new GraphProviderCommand(package, service);
         }
 
         void BeforeQueryStatus(object sender, EventArgs e)
         {
             var button = (OleMenuCommand)sender;
 
-            var rawValue = _package.UserRegistryRoot.GetValue(_dword, 1);
-            int value;
-
-            int.TryParse(rawValue.ToString(), out value);
+            object rawValue = _package.UserRegistryRoot.GetValue(_dword, 1);
+            int.TryParse(rawValue.ToString(), out int value);
 
             _isEnabled = value != 0;
             button.Text = (_isEnabled ? "Disable" : "Enable") + " Solution Explorer's Dynamic Nodes";
